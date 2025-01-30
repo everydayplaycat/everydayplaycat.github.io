@@ -1,11 +1,11 @@
-﻿&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+﻿<!DOCTYPE html>;
+<html lang=&quot;en&quot;>;
 
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;山羊の前端小窝&lt;/title&gt;
-    &lt;style&gt;
+<head>;
+    <meta charset=&quot;UTF-8&quot;>;
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>;
+    <title>;山羊の前端小窝</title>;
+    <style>;
         * {
             padding: 0;
             margin: 0;
@@ -24,15 +24,15 @@
             width: 100%;
             height: 100%;
         }
-    &lt;/style&gt;
-&lt;/head&gt;
+    </style>;
+</head>;
 
-&lt;body&gt;
+<body>;
 
-    &lt;canvas&gt;&lt;/canvas&gt;
+    <canvas>;</canvas>;
 
-&lt;/body&gt;
-&lt;script&gt;
+</body>;
+<script>;
 
     // 定义星星的颜色
     const STAR_COLOR = &#39;#fff&#39;;
@@ -80,7 +80,7 @@
     document.onmouseleave = onMouseLeave;
     // 生成星星
     function generate() {
-        for (let i = 0; i &lt; STAR_COUNT; i++) {
+        for (let i = 0; i < STAR_COUNT; i++) {
             stars.push({
                 x: 0,
                 y: 0,
@@ -101,19 +101,19 @@
         let vx = Math.abs(velocity.x);
         let vy = Math.abs(velocity.y);
         // 如果速度的绝对值大于1，则根据速度的大小随机确定方向
-        if (vx &gt; 1 || vy &gt; 1) {
+        if (vx >; 1 || vy >; 1) {
             let axis;
             // 如果水平速度大于垂直速度，则根据水平速度的比例随机确定水平或垂直方向
-            if (vx &gt; vy) {
-                axis = Math.random() &lt; vx / (vx + vy) ? &#39;h&#39; : &#39;v&#39;;
+            if (vx >; vy) {
+                axis = Math.random() < vx / (vx + vy) ? &#39;h&#39; : &#39;v&#39;;
             } else {
-                axis = Math.random() &lt; vy / (vx + vy) ? &#39;v&#39; : &#39;h&#39;;
+                axis = Math.random() < vy / (vx + vy) ? &#39;v&#39; : &#39;h&#39;;
             }
             // 根据方向确定具体的移动方向
             if (axis === &#39;h&#39;) {
-                direction = velocity.x &gt; 0 ? &#39;l&#39; : &#39;r&#39;;
+                direction = velocity.x >; 0 ? &#39;l&#39; : &#39;r&#39;;
             } else {
-                direction = velocity.y &gt; 0 ? &#39;t&#39; : &#39;b&#39;;
+                direction = velocity.y >; 0 ? &#39;t&#39; : &#39;b&#39;;
             }
         }
         // 随机设置星星的缩放比例
@@ -174,7 +174,7 @@
         velocity.x += (velocity.tx - velocity.x) * 0.8;
         velocity.y += (velocity.ty - velocity.y) * 0.8;
         // 遍历所有星星
-        stars.forEach((star) =&gt; {
+        stars.forEach((star) =>; {
             // 根据速度和缩放比例更新星星的位置
             star.x += velocity.x * star.z;
             star.y += velocity.y * star.z;
@@ -185,10 +185,10 @@
             star.z += velocity.z;
             // 如果星星超出屏幕范围，则重新放置到屏幕上
             if (
-                star.x &lt; -OVERFLOW_THRESHOLD ||
-                star.x &gt; width + OVERFLOW_THRESHOLD ||
-                star.y &lt; -OVERFLOW_THRESHOLD ||
-                star.y &gt; height + OVERFLOW_THRESHOLD
+                star.x < -OVERFLOW_THRESHOLD ||
+                star.x >; width + OVERFLOW_THRESHOLD ||
+                star.y < -OVERFLOW_THRESHOLD ||
+                star.y >; height + OVERFLOW_THRESHOLD
             ) {
                 recycleStar(star);
             }
@@ -197,7 +197,7 @@
     // 绘制星星
     function render() {
         // 遍历所有星星
-        stars.forEach((star) =&gt; {
+        stars.forEach((star) =>; {
             // 设置绘制星星的样式
             context.beginPath();
             context.lineCap = &#39;round&#39;;
@@ -211,8 +211,8 @@
             let tailX = velocity.x * 2;
             let tailY = velocity.y * 2;
             // 如果尾巴坐标的绝对值小于0.1，则设置为0.5
-            if (Math.abs(tailX) &lt; 0.1) tailX = 0.5;
-            if (Math.abs(tailY) &lt; 0.1) tailY = 0.5;
+            if (Math.abs(tailX) < 0.1) tailX = 0.5;
+            if (Math.abs(tailY) < 0.1) tailY = 0.5;
             // 绘制星星的尾巴
             context.lineTo(star.x + tailX, star.y + tailY);
             context.stroke();
@@ -247,6 +247,6 @@
         pointerX = null;
         pointerY = null;
     }
-&lt;/script&gt;
+</script>;
 
-&lt;/html&gt;
+</html>;
